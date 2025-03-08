@@ -132,20 +132,10 @@
       <pose>0 10.1 0 0 -0 0</pose>
     </model>
     <state world_name='default'>
-      <sim_time>620 187000000</sim_time>
-      <real_time>347 248528210</real_time>
-      <wall_time>1741471822 864170110</wall_time>
-      <iterations>346211</iterations>
-      <model name='grey_wall_west'>
-        <pose>0 10.1 0 0 -0 0</pose>
-        <scale>1 1 1</scale>
-        <link name='link'>
-          <pose>0 10.1 1.4 0 -0 0</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-      </model>
+      <sim_time>729 718000000</sim_time>
+      <real_time>109 890083507</real_time>
+      <wall_time>1741472704 412134346</wall_time>
+      <iterations>109531</iterations>
       <model name='grey_wall_east'>
         <pose>0 -10.1 0 0 -0 0</pose>
         <scale>1 1 1</scale>
@@ -176,6 +166,16 @@
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
+      <model name='grey_wall_west'>
+        <pose>0 10.1 0 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>0 10.1 1.4 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
       <model name='ground_plane'>
         <pose>0 0 0 0 -0 0</pose>
         <scale>1 1 1</scale>
@@ -184,6 +184,16 @@
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='proj_model'>
+        <pose>-3.90095 1.55191 0.749992 -1e-06 -3e-06 -1e-06</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>-3.90095 1.55191 0.749992 -1e-06 -3e-06 -1e-06</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>-0.025807 0.000105 -9.77419 0.000945 -0.621851 0.003466</acceleration>
+          <wrench>-0.025807 0.000105 -9.77419 0 -0 0</wrench>
         </link>
       </model>
       <light name='sun'>
@@ -332,5 +342,127 @@
       </link>
       <pose>-3.22513 -1.07393 0 0 -0 1.5708</pose>
     </model>
+
+    <population name="proj_model_population">
+        <model name='proj_model'>
+            <pose>0 0 0 0 0 0</pose>
+            <static>0</static>
+            <link name='link'>
+                <inertial>
+                <mass>1</mass>
+                <inertia>
+                    <ixx>0.083</ixx>
+                    <ixy>0</ixy>
+                    <ixz>0</ixz>
+                    <iyy>0.083</iyy>
+                    <iyz>0</iyz>
+                    <izz>0.083</izz>
+                </inertia>
+                <pose>0 0 0 0 -0 0</pose>
+                </inertial>
+                <collision name='collision1'>
+                <geometry>
+                    <cylinder>
+                    <radius>0.25</radius>
+                    <length>1.5</length>
+                    </cylinder>
+                </geometry>
+                <max_contacts>10</max_contacts>
+                <surface>
+                    <contact>
+                    <ode/>
+                    </contact>
+                    <bounce/>
+                    <friction>
+                    <torsional>
+                        <ode/>
+                    </torsional>
+                    <ode/>
+                    </friction>
+                </surface>
+                </collision>
+                <collision name='collision2'>
+                <pose>1.5 0 0.25 0 -0 0</pose>
+                <geometry>
+                    <box>
+                    <size>3 0.25 1</size>
+                    </box>
+                </geometry>
+                <max_contacts>10</max_contacts>
+                <surface>
+                    <contact>
+                    <ode/>
+                    </contact>
+                    <bounce/>
+                    <friction>
+                    <torsional>
+                        <ode/>
+                    </torsional>
+                    <ode/>
+                    </friction>
+                </surface>
+                </collision>
+                <collision name='collision3'>
+                <pose>3 0 0 0 -0 0</pose>
+                <geometry>
+                    <cylinder>
+                    <radius>0.25</radius>
+                    <length>1.5</length>
+                    </cylinder>
+                </geometry>
+                <max_contacts>10</max_contacts>
+                <surface>
+                    <contact>
+                    <ode/>
+                    </contact>
+                    <bounce/>
+                    <friction>
+                    <torsional>
+                        <ode/>
+                    </torsional>
+                    <ode/>
+                    </friction>
+                </surface>
+                </collision>
+                <visual name='visual1'>
+                <geometry>
+                    <cylinder>
+                    <radius>0.25</radius>
+                    <length>1.5</length>
+                    </cylinder>
+                </geometry>
+                </visual>
+                <visual name='visual2'>
+                <pose>1.5 0 0.25 0 -0 0</pose>
+                <geometry>
+                    <box>
+                    <size>3 0.25 1</size>
+                    </box>
+                </geometry>
+                </visual>
+                <visual name='visual3'>
+                <pose>3 0 0 0 -0 0</pose>
+                <geometry>
+                    <cylinder>
+                    <radius>0.25</radius>
+                    <length>1.5</length>
+                    </cylinder>
+                </geometry>
+                </visual>
+                <self_collide>0</self_collide>
+                <enable_wind>0</enable_wind>
+                <kinematic>0</kinematic>
+            </link>
+        </model>
+        <pose>0 0 0 0 0 0</pose>
+        <box>
+            <size>10 10 0.01</size>
+        </box>
+        <model_count>4</model_count>
+        <distribution>
+            <type>uniform</type>
+        </distribution>
+    </population>
+        
   </world>
 </sdf>

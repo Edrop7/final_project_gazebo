@@ -424,6 +424,27 @@
                         </friction>
                     </surface>
                 </collision>
+                <collision name="collision4">
+                    <pose>1.5 0.5 -0.25 0 0 0</pose>
+                    <geometry>
+                        <box>
+                            <size>3 1 0.25</size>
+                        </box>
+                    </geometry>
+                    <max_contacts>10</max_contacts>
+                    <surface>
+                        <contact>
+                        <ode/>
+                        </contact>
+                        <bounce/>
+                        <friction>
+                        <torsional>
+                            <ode/>
+                        </torsional>
+                        <ode/>
+                        </friction>
+                    </surface>
+                </collision>
                 <visual name='visual1'>
                     <geometry>
                         <cylinder>
@@ -447,6 +468,14 @@
                         <radius>0.25</radius>
                         <length>1.5</length>
                         </cylinder>
+                    </geometry>
+                </visual>
+                <visual name="visual4">
+                    <pose>1.5 0.5 -0.25 0 0 0</pose>
+                    <geometry>
+                        <box>
+                            <size>3 1 0.25</size>
+                        </box>
                     </geometry>
                 </visual>
                 <self_collide>0</self_collide>

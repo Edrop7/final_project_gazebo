@@ -11,9 +11,14 @@ public:
     // Store the pointer to the model
     this->model = _parent;
 
-    this->velocity = 0.1;
-    if (_sdf->HasElement("velocity")) {
-      this->velocity = _sdf->Get<double>("velocity");
+    this->velocity_x = 0.1;
+    if (_sdf->HasElement("velocity_x")) {
+      this->velocity_x = _sdf->Get<double>("velocity_x");
+    }
+
+    this->velocity_y = 0.1;
+    if (_sdf->HasElement("velocity_y")) {
+      this->velocity_y = _sdf->Get<double>("velocity_y");
     }
 
     this->iterations = 10 * 1000;
@@ -33,10 +38,11 @@ public:
     // Apply a small linear velocity to the model and move it in a square
 
     if (this->counter < this->iterations) {
-      this->model->SetLinearVel(ignition::math::Vector3d(this->velocity, 0, 0));
+      this->model->SetLinearVel(
+          ignition::math::Vector3d(this->velocity_x, this->velocity_y, 0));
     } else if (this->counter < (2 * this->iterations)) {
       this->model->SetLinearVel(
-          ignition::math::Vector3d(-this->velocity, 0, 0));
+          ignition::math::Vector3d(-this->velocity_x, -this->velocity_y, 0));
     } else {
       this->counter = 0;
     }
@@ -51,7 +57,8 @@ private:
 private:
   int counter;
   int iterations;
-  double velocity;
+  double velocity_x;
+  double velocity_y;
 
   // Pointer to the update event connection
 private:

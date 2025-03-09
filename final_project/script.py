@@ -22,39 +22,42 @@ def take_action(regions):
     linear_x = 0
     angular_z = 0
 
+    turn_speed = 1
+    move_speed = 0.5
+
     state_description = ''
 
     if regions['front'] > 1 and regions['fleft'] > 1 and regions['fright'] > 1:
         state_description = 'case 1 - nothing'
-        linear_x = 0.2
+        linear_x = move_speed
         angular_z = 0
     elif regions['front'] < 1 and regions['fleft'] > 1 and regions['fright'] > 1:
         state_description = 'case 2 - front'
-        linear_x = 0
-        angular_z = 0.2
+        linear_x = -move_speed
+        angular_z = turn_speed
     elif regions['front'] > 1 and regions['fleft'] > 1 and regions['fright'] < 1:
         state_description = 'case 3 - fright'
-        linear_x = 0
-        angular_z = 0.2
+        linear_x = -move_speed
+        angular_z = turn_speed
     elif regions['front'] > 1 and regions['fleft'] < 1 and regions['fright'] > 1:
         state_description = 'case 4 - fleft'
-        linear_x = 0
-        angular_z = -0.2
+        linear_x = -move_speed
+        angular_z = -turn_speed
     elif regions['front'] < 1 and regions['fleft'] > 1 and regions['fright'] < 1:
         state_description = 'case 5 - front and fright'
         linear_x = 0
-        angular_z = 0.2
+        angular_z = turn_speed * 2
     elif regions['front'] < 1 and regions['fleft'] < 1 and regions['fright'] > 1:
         state_description = 'case 6 - front and fleft'
         linear_x = 0
-        angular_z = -0.2
+        angular_z = -turn_speed * 2
     elif regions['front'] < 1 and regions['fleft'] < 1 and regions['fright'] < 1:
         state_description = 'case 7 - front and fleft and fright'
-        linear_x = 0
-        angular_z = 0.2
+        linear_x = -move_speed
+        angular_z = 0.0
     elif regions['front'] > 1 and regions['fleft'] < 1 and regions['fright'] < 1:
         state_description = 'case 8 - fleft and fright'
-        linear_x = 0.2
+        linear_x = move_speed
         angular_z = 0
     else:
         state_description = 'unknown case'

@@ -31,18 +31,18 @@
         </visual>
     </link>
 
-    <!-- Joint - chassis / left wheel -->
-    <joint name="joint_chassis_left_wheel" type="continuous">
+    <!-- Joint - chassis / rear left wheel -->
+    <joint name="joint_chassis_rear_left_wheel" type="continuous">
         <origin rpy="0 0 0" xyz="-0.3 0.375 0" />
-        <child link="link_left_wheel" />
+        <child link="link_rear_left_wheel" />
         <parent link="link_chassis" />
         <axis rpy="0 0 0" xyz="0 1 0" />
         <limit effort="10000" velocity="1000" />
         <joint_properties damping="1.0" friction="1.0" />
     </joint>
 
-    <!-- Link - left wheel -->
-    <link name="link_left_wheel">
+    <!-- Link - rear left wheel -->
+    <link name="link_rear_left_wheel">
         <inertial>
             <mass value="0.5" />
             <origin xyz="0 0 0" rpy="0 0 0" />
@@ -99,18 +99,154 @@
 
     </link>
 
-    <!-- Joint - chassis / right wheel -->
-    <joint name="joint_chassis_right_wheel" type="continuous">
-        <origin rpy="0 0 0" xyz="-0.3 -0.375 0" />
-        <child link="link_right_wheel" />
+    <!-- Joint - chassis / front left wheel -->
+    <joint name="joint_chassis_front_left_wheel" type="continuous">
+        <origin rpy="0 0 0" xyz="0.3 0.375 0" />
+        <child link="link_front_left_wheel" />
         <parent link="link_chassis" />
         <axis rpy="0 0 0" xyz="0 1 0" />
         <limit effort="10000" velocity="1000" />
         <joint_properties damping="1.0" friction="1.0" />
     </joint>
 
-    <!-- Link - right wheel -->
-    <link name="link_right_wheel">
+    <!-- Link - front left wheel -->
+    <link name="link_front_left_wheel">
+        <inertial>
+            <mass value="0.5" />
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <inertia ixx="0.002526666666667" ixy="0" ixz="0" iyy="0.002526666666667" iyz="0" izz="0.005"/>
+        </inertial>
+
+        <collision>
+            <origin rpy="${pi / 2} 0 0" xyz="0 0.1 0" />
+            <geometry>
+                <cylinder length="0.1" radius="0.25"/>
+            </geometry>
+        </collision>
+        <visual>
+            <origin rpy="${pi / 2} 0 0" xyz="0 0.1 0" />
+            <geometry>
+                <mesh filename="package://robot_description/meshes/wheel.stl" scale="0.5 0.5 0.5" />
+            </geometry>
+            <material name="Black">
+                <color rgba="0 0 0 1" />
+            </material>
+        </visual>
+
+        <collision>
+            <origin rpy="${pi / 2} 0 0" xyz="0 0.0525 0" />
+            <geometry>
+                <cylinder length="0.105" radius="0.05"/>
+            </geometry>
+        </collision>
+        <visual>
+            <origin rpy="${pi / 2} 0 0" xyz="0 0.0525 0" />
+            <geometry>
+                <cylinder length="0.105" radius="0.05"/>
+            </geometry>
+            <material name="Black">
+                <color rgba="0 0 0 1" />
+            </material>
+        </visual>
+
+        <collision>
+            <origin rpy="${pi} 0 0" xyz="0 0.1 0" />
+            <geometry>
+                <box size="0.03 0.01 0.3" />
+            </geometry>
+        </collision>
+        <visual>
+            <origin rpy="${pi} 0 0" xyz="0 0.1 0" />
+            <geometry>
+                <box size="0.03 0.01 0.3" />
+            </geometry>
+            <material name="Black">
+                <color rgba="0 0 0 1" />
+            </material>
+        </visual>
+
+    </link>
+
+    <!-- Joint - chassis / rear right wheel -->
+    <joint name="joint_chassis_rear_right_wheel" type="continuous">
+        <origin rpy="0 0 0" xyz="-0.3 -0.375 0" />
+        <child link="link_rear_right_wheel" />
+        <parent link="link_chassis" />
+        <axis rpy="0 0 0" xyz="0 1 0" />
+        <limit effort="10000" velocity="1000" />
+        <joint_properties damping="1.0" friction="1.0" />
+    </joint>
+
+    <!-- Link - rear right wheel -->
+    <link name="link_rear_right_wheel">
+        <inertial>
+            <mass value="0.5" />
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <inertia ixx="0.002526666666667" ixy="0" ixz="0" iyy="0.002526666666667" iyz="0" izz="0.005"/>
+        </inertial>
+
+        <collision>
+            <origin rpy="${pi / 2} 0 0" xyz="0 -0.1 0" />
+            <geometry>
+                <cylinder length="0.1" radius="0.25"/>
+            </geometry>
+        </collision>
+        <visual>
+            <origin rpy="${pi / 2} 0 0" xyz="0 -0.1 0" />
+            <geometry>
+                <mesh filename="package://robot_description/meshes/wheel.stl" scale="0.5 0.5 0.5" />
+            </geometry>
+            <material name="Black">
+                <color rgba="0 0 0 1" />
+            </material>
+        </visual>
+
+        <collision>
+            <origin rpy="${pi / 2} 0 0" xyz="0 -0.0525 0" />
+            <geometry>
+                <cylinder length="0.105" radius="0.05"/>
+            </geometry>
+        </collision>
+        <visual>
+            <origin rpy="${pi / 2} 0 0" xyz="0 -0.0525 0" />
+            <geometry>
+                <cylinder length="0.105" radius="0.05"/>
+            </geometry>
+            <material name="Black">
+                <color rgba="0 0 0 1" />
+            </material>
+        </visual>
+
+        <collision>
+            <origin rpy="${pi} 0 0" xyz="0 -0.1 0" />
+            <geometry>
+                <box size="0.03 0.01 0.3" />
+            </geometry>
+        </collision>
+        <visual>
+            <origin rpy="${pi} 0 0" xyz="0 -0.1 0" />
+            <geometry>
+                <box size="0.03 0.01 0.3" />
+            </geometry>
+            <material name="Black">
+                <color rgba="0 0 0 1" />
+            </material>
+        </visual>
+
+    </link>
+
+    <!-- Joint - chassis / front right wheel -->
+    <joint name="joint_chassis_front_right_wheel" type="continuous">
+        <origin rpy="0 0 0" xyz="0.3 -0.375 0" />
+        <child link="link_front_right_wheel" />
+        <parent link="link_chassis" />
+        <axis rpy="0 0 0" xyz="0 1 0" />
+        <limit effort="10000" velocity="1000" />
+        <joint_properties damping="1.0" friction="1.0" />
+    </joint>
+
+    <!-- Link - front right wheel -->
+    <link name="link_front_right_wheel">
         <inertial>
             <mass value="0.5" />
             <origin xyz="0 0 0" rpy="0 0 0" />

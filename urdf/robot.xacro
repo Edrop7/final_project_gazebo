@@ -20,10 +20,25 @@
                 <box size="1 0.75 0.2" />
             </geometry>
         </collision>
+        <collision>
+            <origin rpy="0 0 0" xyz="0.3 0 0.3" />
+            <geometry>
+                <box size="0.2 0.2 0.4" />
+            </geometry>
+        </collision>
 
         <visual>
             <geometry>
                 <box size="1 0.75 0.2" />
+            </geometry>
+            <material name="Red">
+                <color rgba="1 0 0 1" />
+            </material>
+        </visual>
+        <visual>
+            <origin rpy="0 0 0" xyz="0.4 0 0.3" />
+            <geometry>
+                <box size="0.2 0.2 0.4" />
             </geometry>
             <material name="Red">
                 <color rgba="1 0 0 1" />
@@ -305,7 +320,7 @@
 
     <!-- Joint : Laser scan -->
     <joint name="joint_laser_scan_chassis" type="fixed">
-        <origin rpy="0 0 0" xyz="0.4 0 0.135" />
+        <origin rpy="0 0 0" xyz="0.4 0 0.535" />
         <child link="link_laser_scan" />
         <parent link="link_chassis" />
         <joint_properties damping="1.0" friction="1.0" />

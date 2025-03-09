@@ -3,15 +3,15 @@
 
     <!-- Gazebo - colors -->
     <gazebo reference="link_chassis">
-        <material>Gazebo/Orange</material>
+        <material>Gazebo/Red</material>
     </gazebo>    
     <gazebo reference="link_left_wheel">
-        <material>Gazebo/DarkGrey</material>
+        <material>Gazebo/FlatBlack</material>
         <mu1>0.2</mu1>
         <mu2>0.2</mu2>
     </gazebo>
     <gazebo reference="link_right_wheel">
-        <material>Gazebo/DarkGrey</material>
+        <material>Gazebo/FlatBlack</material>
         <mu1>0.2</mu1>
         <mu2>0.2</mu2>
     </gazebo>
@@ -38,7 +38,7 @@
         <preserveFixedJoint>true</preserveFixedJoint>
     </gazebo>
     <gazebo reference="link_laser_scan">
-        <material>Gazebo/DarkGrey</material>
+        <material>Gazebo/FlatBlack</material>
     </gazebo>
 
     <gazebo reference="link_laser_scan">
@@ -56,7 +56,7 @@
                     </horizontal>
                 </scan>
                 <range>
-                    <min>0.20</min>
+                    <min>0.05</min>
                     <max>10.0</max>
                     <resolution>0.01</resolution>
                 </range>

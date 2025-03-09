@@ -33,7 +33,7 @@
 
     <!-- Joint - chassis / rear left wheel -->
     <joint name="joint_chassis_rear_left_wheel" type="continuous">
-        <origin rpy="0 0 0" xyz="-0.3 0.375 0" />
+        <origin rpy="0 0 0" xyz="-0.225 0.375 0" />
         <child link="link_rear_left_wheel" />
         <parent link="link_chassis" />
         <axis rpy="0 0 0" xyz="0 1 0" />
@@ -101,7 +101,7 @@
 
     <!-- Joint - chassis / front left wheel -->
     <joint name="joint_chassis_front_left_wheel" type="continuous">
-        <origin rpy="0 0 0" xyz="0.3 0.375 0" />
+        <origin rpy="0 0 0" xyz="0.225 0.375 0" />
         <child link="link_front_left_wheel" />
         <parent link="link_chassis" />
         <axis rpy="0 0 0" xyz="0 1 0" />
@@ -169,7 +169,7 @@
 
     <!-- Joint - chassis / rear right wheel -->
     <joint name="joint_chassis_rear_right_wheel" type="continuous">
-        <origin rpy="0 0 0" xyz="-0.3 -0.375 0" />
+        <origin rpy="0 0 0" xyz="-0.225 -0.375 0" />
         <child link="link_rear_right_wheel" />
         <parent link="link_chassis" />
         <axis rpy="0 0 0" xyz="0 1 0" />
@@ -237,7 +237,7 @@
 
     <!-- Joint - chassis / front right wheel -->
     <joint name="joint_chassis_front_right_wheel" type="continuous">
-        <origin rpy="0 0 0" xyz="0.3 -0.375 0" />
+        <origin rpy="0 0 0" xyz="0.225 -0.375 0" />
         <child link="link_front_right_wheel" />
         <parent link="link_chassis" />
         <axis rpy="0 0 0" xyz="0 1 0" />

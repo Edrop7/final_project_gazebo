@@ -5,12 +5,22 @@
     <gazebo reference="link_chassis">
         <material>Gazebo/Red</material>
     </gazebo>    
-    <gazebo reference="link_left_wheel">
+    <gazebo reference="link_front_left_wheel">
         <material>Gazebo/FlatBlack</material>
         <mu1>0.2</mu1>
         <mu2>0.2</mu2>
     </gazebo>
-    <gazebo reference="link_right_wheel">
+    <gazebo reference="link_rear_left_wheel">
+        <material>Gazebo/FlatBlack</material>
+        <mu1>0.2</mu1>
+        <mu2>0.2</mu2>
+    </gazebo>
+    <gazebo reference="link_front_right_wheel">
+        <material>Gazebo/FlatBlack</material>
+        <mu1>0.2</mu1>
+        <mu2>0.2</mu2>
+    </gazebo>
+    <gazebo reference="link_rear_right_wheel">
         <material>Gazebo/FlatBlack</material>
         <mu1>0.2</mu1>
         <mu2>0.2</mu2>
@@ -18,13 +28,15 @@
 
     <!-- Gazebo - differential driver -->
     <gazebo>
-        <plugin filename="libgazebo_ros_diff_drive.so" name="differential_drive_controller">
+        <plugin filename="libgazebo_ros_skid_steer_drive.so" name="skid_steer_controller">
             <alwaysOn>true</alwaysOn>
             <updateRate>20</updateRate>
-            <leftJoint>joint_chassis_left_wheel</leftJoint>
-            <rightJoint>joint_chassis_right_wheel</rightJoint>
-            <wheelSeparation>1.66</wheelSeparation>
-            <wheelDiameter>0.8</wheelDiameter>
+            <leftFrontJoint>joint_chassis_front_left_wheel</leftFrontJoint>
+            <rightFrontJoint>joint_chassis_front_right_wheel</rightFrontJoint>
+            <leftRearJoint>joint_chassis_rear_left_wheel</leftRearJoint>
+            <rightRearJoint>joint_chassis_rear_right_wheel</rightRearJoint>
+            <wheelSeparation>0.95</wheelSeparation>
+            <wheelDiameter>0.4</wheelDiameter>
             <torque>10</torque>
             <commandTopic>cmd_vel</commandTopic>
             <odometryTopic>odom</odometryTopic>
